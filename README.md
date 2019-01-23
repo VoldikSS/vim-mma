@@ -1,52 +1,44 @@
-#vim-mathematica
----
-This plugin provides functionality for working with _Mathematica_ files in vim. Some of the features are:
+# vim-mma
 
- - Syntax highlighting for _Mathematica's_ `.m` files (including built-ins functions)
- - Omni code completion for ``System` `` functions (as of _Mathematica_ 10.0.0) using `Ctrl-X Ctrl-O`
- - Smart concealment of operators such as `:>` with `⧴` and Front-End generated symbols such as `\[Alpha]` with their Greek counterpart, `α`.
+A Vim/Neovim plugin to provide [Wolfram Mathematica](https://wolfram.com/language/) language support.
 
-Please read the features section for more details.
+This is a fork of [vim-mathematica](https://github.com/rsmenon/vim-mathematica) with some improvements.
 
-##Installation
+### Installation
 
-To use the plugin, extract the contents of the [zip file](https://github.com/rsmenon/vim-mathematica/archive/master.zip) to your `~/.vim` directory (or its equivalent on Windows). If you use [Pathogen](https://github.com/tpope/vim-pathogen), then you can either extract the contents to `~/.vim/bundle/vim-mathematica` or clone this git repository
+Preferred plugin manager is [vim-plug](https://github.com/junegunn/vim-plug):
 
+```vim
+Plug 'Shougo/deoplete.nvim'
+Plug 'VoldikSS/vim-mma'
 ```
-git clone git@github.com:rsmenon/vim-mathematica.git ~/.vim/bundle/vim-mathematica
-```
+Additionally, Vim doesn't regard `*.wl`/`*.wsl` as Mathematica file, you may set filetype by adding the following to your `vimrc`:
 
-##Features
-
-###Syntax highlighting
-Highlighting is supported for
-
- - Built-in symbols (as of 10.0.0)
- - User defined symbols
- - Strings, numbers, operators and comments
- - Messages and patterns (only the LHS of named patterns)
-
-By default, the highlight groups are linked to the standard highlight groups to give the user control over its appearance (depends on their chosen colorscheme). However, if you use the [Solarized](https://github.com/altercation/vim-colors-solarized) colorscheme, then you can add the following to your `.vimrc` for some sane colors that closely resemble the Front End's highlighting:
-
-```
-let g:mma_highlight_option = "solarized"
+```vim
+autocmd BufNewFile,BufRead *.wl set filetype=mma
+autocmd BufNewFile,BufRead *.wls set filetype=mma
 ```
 
-**Screenshot:**
+### Features
 
-<img src="http://i.stack.imgur.com/Knid6.png" height=200></img>
+- __Syntax highlighting__
 
-**NOTE:** To use syntax highlighting, vim must have been compiled with the `+syntax` option.
+    Vim has the orignial support for mma files. However, many mma keywords were not included.
 
-###Code completion
-Since the plugin is aware of all the built-in functions in _Mathematica_, it can also perform code completion for these functions. To complete any partially entered function, press `Ctrl-X Ctrl-O` when in insert mode to bring up a list of options
+    I implemented almost all the keywords of mma(version 11.3) for better syntax highlighting.
 
-**Screenshot:**
+<img src="https://user-images.githubusercontent.com/20282795/46467204-bf027f80-c7ff-11e8-82c9-acf43f3b89e1.png" height=350 width =640>
 
-<img src="http://i.stack.imgur.com/IprLF.png" height=200></img>
+- __Code completion__
 
-**NOTE:** To use code completion, you must have `filetype plugin on` in your `.vimrc`
-###Smart Conceal
+    This plugin can perform code completion for all the built-in functions or variables(totally 7406 now)
+
+   **NOTE**: you must install [deoplete](https://github.com/Shougo/deoplete.nvim) firstly
+
+![](https://user-images.githubusercontent.com/20282795/46467105-84004c00-c7ff-11e8-9e2e-e64b4a30fbaf.gif)
+
+- __Smart Conceal__
+
 The conceal features make it easier to read code that has been copied from the Front End. It "hides" symbols such as `\[Alpha]`, which are displayed as `α` in the Front End, and shows the equivalent Greek letter instead. Some common operators are also prettified, such as `⧴` for `:>`, `≠` for `!=`, etc.
 
 To enable this feature, ensure that you have a font that has good unicode support (like Deja Vu Mono) and enter the following in your `.vimrc`
@@ -56,7 +48,7 @@ let g:mma_candy = 1
 ```
 To turn off the conceal features, simply change the value to `0`. Note that the source code is **not** modified. The conceal feature affects **only** the display and is disabled for the current line so that you know what you're editing.
 
-**Screenshot:** (first line shows the concealed characters and the second the actual source)
+*Screenshot:* (first line shows the concealed characters and the second the actual source)
 
 <img src="http://i.stack.imgur.com/NrWxO.png" height=40></img>
 
@@ -69,4 +61,9 @@ However, these might not look good in all fonts, and are also a tad awkward, so 
 
 <img src="http://i.stack.imgur.com/tZUcE.png" height=40></img>
 
-**NOTE:** To use the conceal features, vim must have been compiled with the `+conceal` option and the encoding must be set to `utf-8`.
+### Credits
+
+- @[rsmenon](https://github.com/rsmenon)
+
+- @[arnoudbuzing](https://github.com/arnoudbuzing)
+
