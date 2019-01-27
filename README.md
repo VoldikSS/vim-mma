@@ -6,17 +6,19 @@ This is a fork of [vim-mathematica](https://github.com/rsmenon/vim-mathematica) 
 
 ### Installation
 
-Preferred plugin manager is [vim-plug](https://github.com/junegunn/vim-plug):
+Preferred plugin manager is [vim-plug](https://github.com/junegunn/vim-plug), add 
 
 ```vim
 Plug 'Shougo/deoplete.nvim'
-Plug 'VoldikSS/vim-mma'
+Plug 'voldikss/vim-mma'
 ```
+to your `.vimrc`, restart Vim and run `:PlugInstall`.
+
 Additionally, Vim doesn't regard `*.wl`/`*.wsl` as Mathematica file, you may set filetype by adding the following to your `vimrc`:
 
 ```vim
-autocmd BufNewFile,BufRead *.wl set filetype=mma
-autocmd BufNewFile,BufRead *.wls set filetype=mma
+autocmd BufNewFile,BufRead *.wl setfiletype mma
+autocmd BufNewFile,BufRead *.wls setfiletype mma
 ```
 
 ### Features
@@ -27,15 +29,15 @@ autocmd BufNewFile,BufRead *.wls set filetype=mma
 
     I implemented almost all the keywords of mma(version 11.3) for better syntax highlighting.
 
-<img src="https://user-images.githubusercontent.com/20282795/46467204-bf027f80-c7ff-11e8-82c9-acf43f3b89e1.png" height=350 width =640>
+![](https://user-images.githubusercontent.com/20282795/51797239-b7e20000-223a-11e9-8a06-aec35baaa01a.png)
 
 - __Code completion__
 
     This plugin can perform code completion for all the built-in functions or variables(totally 7406 now)
 
-   **NOTE**: you must install [deoplete](https://github.com/Shougo/deoplete.nvim) firstly
+   **NOTE**: You must install [Deoplete](https://github.com/Shougo/deoplete.nvim) __or__ [Coc](https://github.com/neoclide/coc.nvim) completion framework!!!
 
-![](https://user-images.githubusercontent.com/20282795/46467105-84004c00-c7ff-11e8-9e2e-e64b4a30fbaf.gif)
+![](https://user-images.githubusercontent.com/20282795/51797535-79e7da80-2240-11e9-88ec-88aa9200c5f8.gif)
 
 - __Smart Conceal__
 
