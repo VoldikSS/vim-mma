@@ -20,8 +20,8 @@ class Source(Base):
         self.name = 'wolfram'
         self.events = ['InsertEnter']
         self.sorters = ['sorter_len']
-        self.max_candidates = 0
-        self.min_pattern_length = 2
+        self.max_candidates = 25
+        self.min_pattern_length = 1
         self.match_pattern = re.compile(r'[A-Z$][^:\s\@\[\]\{\}\(\)\/\*\+\&\%\-]*$')
     
     def gather_candidates(self, context):
