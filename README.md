@@ -9,7 +9,7 @@ This is a fork of [vim-mathematica](https://github.com/rsmenon/vim-mathematica) 
 Preferred plugin manager is [vim-plug](https://github.com/junegunn/vim-plug), add 
 
 ```vim
-" Install one of this two plugins:
+" Install one of these two plugins:
 " Plug 'neoclide/coc.nvim'
 " Plug 'Shougo/deoplete.nvim'
 Plug 'voldikss/vim-mma'
