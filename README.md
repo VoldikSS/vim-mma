@@ -9,27 +9,20 @@ This is a fork of [vim-mathematica](https://github.com/rsmenon/vim-mathematica) 
 Preferred plugin manager is [vim-plug](https://github.com/junegunn/vim-plug), add 
 
 ```vim
-" Install one of these two plugins:
+" Install one of these two plugins for code completion:
 " Plug 'neoclide/coc.nvim'
 " Plug 'Shougo/deoplete.nvim'
 Plug 'voldikss/vim-mma'
 ```
 to your `.vimrc`, restart Vim and run `:PlugInstall`.
 
-Additionally, Vim doesn't regard `*.wl`/`*.wsl` as Mathematica file, you may set filetype by adding the following to your `vimrc`:
-
-```vim
-autocmd BufNewFile,BufRead *.wl setfiletype mma
-autocmd BufNewFile,BufRead *.wls setfiletype mma
-```
-
 ### Features
 
 - __Syntax highlighting__
 
-    Vim has the orignial support for mma files. However, many mma keywords were not included.
+    Vim has the original support for Mathematica files. However, many Mathematica keywords were not included.
 
-    I implemented almost all the keywords of mma(version 11.3) for better syntax highlighting.
+    I implemented almost all the keywords of Mathematica(version 11.3) for better syntax highlighting.
 
 ![](https://user-images.githubusercontent.com/20282795/51797239-b7e20000-223a-11e9-8a06-aec35baaa01a.png)
 
