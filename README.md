@@ -9,32 +9,44 @@ This is a fork of [vim-mathematica](https://github.com/rsmenon/vim-mathematica) 
 Preferred plugin manager is [vim-plug](https://github.com/junegunn/vim-plug), add 
 
 ```vim
-" Install one of these two plugins for code completion:
-" Plug 'neoclide/coc.nvim'
-" Plug 'Shougo/deoplete.nvim'
 Plug 'voldikss/vim-mma'
 ```
-to your `.vimrc`, restart Vim and run `:PlugInstall`.
+to your `vimrc`, restart Vim and run `:PlugInstall`.
 
-### Features
+### Syntax highlighting
 
-- __Syntax highlighting__
+Vim has the original support for Mathematica files. However, many Mathematica keywords were not included
 
-    Vim has the original support for Mathematica files. However, many Mathematica keywords were not included.
-
-    I implemented almost all the keywords of Mathematica(version 11.3) for better syntax highlighting.
+I have implemented all the keywords of Mathematica(version 11.3) for better syntax highlighting
 
 ![](https://user-images.githubusercontent.com/20282795/51797239-b7e20000-223a-11e9-8a06-aec35baaa01a.png)
 
-- __Code completion__
+### Code completion
 
-    This plugin can perform code completion for all the built-in functions or variables(totally 7406 now)
+This plugin can perform code completion for all the built-in functions and variables(totally 7406 now)
 
-   **NOTE**: You must install [Deoplete](https://github.com/Shougo/deoplete.nvim) __or__ [Coc](https://github.com/neoclide/coc.nvim) completion framework!!!
+- **Auto complete with deoplete.nvim**
+
+    Install [deoplete.nvim](https://github.com/Shougo/deoplete.nvim) and [neco-syntax](https://github.com/Shougo/neco-syntax)
+
+    ```vim
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/neco-syntax'
+    ```
+    and run `:PlugInstall`
+
+- **Auto complete with coc.nvim**
+
+    After installing [coc.nvim](https://github.com/neoclide/coc.nvim/), you also need to install [coc-syntax](https://github.com/neoclide/coc-sources) extension to make completion workable
+
+    ```vim
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+    ```
+    and run `:CocInstall coc-syntax`
 
 ![](https://user-images.githubusercontent.com/20282795/51797535-79e7da80-2240-11e9-88ec-88aa9200c5f8.gif)
 
-- __Smart Conceal__
+### Smart Conceal
 
 The conceal features make it easier to read code that has been copied from the Front End. It "hides" symbols such as `\[Alpha]`, which are displayed as `α` in the Front End, and shows the equivalent Greek letter instead. Some common operators are also prettified, such as `⧴` for `:>`, `≠` for `!=`, etc.
 
