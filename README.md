@@ -27,11 +27,10 @@ This plugin can perform code completion for all the built-in functions and varia
 
 - **Auto complete with deoplete.nvim**
 
-    Install [deoplete.nvim](https://github.com/Shougo/deoplete.nvim) and [neco-syntax](https://github.com/Shougo/neco-syntax)
+    Install [deoplete.nvim](https://github.com/Shougo/deoplete.nvim)
 
     ```vim
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/neco-syntax'
     ```
     and run `:PlugInstall`
 
